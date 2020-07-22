@@ -1,4 +1,4 @@
-package sec01.ex01;
+package sec02.ex01;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -58,7 +58,7 @@ public class MemberDAO {
 	}
 
 	//아직은 addmember()를 사용하지않았다.
-	public void addmember(MemberVO m) {
+	public void addMember(MemberVO m) {
 		try {
 			conn = dataFactory.getConnection();
 			String id = m.getId();
@@ -67,7 +67,7 @@ public class MemberDAO {
 			String email = m.getEmail();
 			Date joinDate = m.getJoinDate();
 
-			String query = "insert into t_member(id,pwd,name,email)" + "value(?,?,?,?)";
+			String query = "insert into t_member(id,pwd,name,email)" + "values(?,?,?,?)";
 			System.out.println(query);
 
 			pstmt = conn.prepareStatement(query);

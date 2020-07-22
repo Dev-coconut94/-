@@ -38,6 +38,8 @@ public class MemberController extends HttpServlet{
 		req.setAttribute("membersList", membersList);
 		RequestDispatcher dispatch = req.getRequestDispatcher("/test01/listMembers.jsp");
 		dispatch.forward(req, resp);
+		//requestdispatcher는 클라이언트에게 보여줄 부분을 붙이기 위한 기능같다. (정의를 확실히 봐보자) 
+		//dispatch.forward(req ,resp)는 listmembers의 결과 List와 resp의 타입을 인자로 넣어 진행된다.) 
 	}
 	
 	
