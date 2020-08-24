@@ -38,7 +38,7 @@ public class FileDownloadController extends HttpServlet{
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html; charset=utf-8");
 		String imageFileName = (String)req.getParameter("imageFileName");
-		String articleNO = req.getParameter("articeNO");
+		String articleNO = req.getParameter("articleNO");
 		System.out.println("imageFileName=" + imageFileName);
 		OutputStream out = resp.getOutputStream();
 		

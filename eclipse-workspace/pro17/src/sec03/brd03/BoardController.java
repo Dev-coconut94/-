@@ -20,7 +20,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FileUtils;
 
-@WebServlet("/board/*")
+/*@WebServlet("/board/*")*/
 public class BoardController extends HttpServlet {
 	private static String ARTICLE_IMAGE_REPO = "E:\\File\\board\\article_image";
 	BoardService boardService;

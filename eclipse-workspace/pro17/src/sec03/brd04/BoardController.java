@@ -53,13 +53,13 @@ public class BoardController extends HttpServlet {
 			if (action == null) {
 				articlesList = boardService.listArticles();
 				req.setAttribute("articlesList", articlesList);
-				nextPage = "/board02/listArticles.jsp";
+				nextPage = "/board03/listArticles.jsp";
 			} else if (action.equals("/listArticles.do")) {
 				articlesList = boardService.listArticles();
 				req.setAttribute("articlesList", articlesList);
-				nextPage = "/board02/listArticles.jsp";
+				nextPage = "/board03/listArticles.jsp";
 			} else if (action.equals("/articleForm.do")) {
-				nextPage = "/board02/articleForm.jsp";
+				nextPage = "/board03/articleForm.jsp";
 			} else if (action.equals("/addArticle.do")) {
 				int articleNO = 0;
 				Map<String, String> articleMap = upload(req, resp);
@@ -87,12 +87,12 @@ public class BoardController extends HttpServlet {
 
 			} else if (action.equals("/viewArticle.do")) {
 				String articleNO = req.getParameter("articleNO");
-				articleNO= boardService.viewArticle(Integer.parseInt(articleNO));
+				articleVO= boardService.viewArticle(Integer.parseInt(articleNO));
 				req.setAttribute("article", articleVO);
 				nextPage = "/board03/viewArticle.jsp";
 				
 			} else {
-				nextPage = "/board02/listArticles.jsp";
+				nextPage = "/board03/listArticles.jsp";
 			}
 
 			RequestDispatcher dispatch = req.getRequestDispatcher(nextPage);
@@ -102,13 +102,7 @@ public class BoardController extends HttpServlet {
 		}
 
 	}
-	
-	public ArticleVO viewArticle(int articleNO) {
-		ArticleVO article = null;
-		article = BoardDAO.selectArticle(articleNO);
-		return article;
-	}
-	
+
 	
 	private Map<String, String> upload(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
